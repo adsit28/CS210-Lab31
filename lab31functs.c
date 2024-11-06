@@ -18,8 +18,15 @@
  * ----------------------------------------------------------
  */
 int powerN(int base, int exp) {
+    int newbase = base;
+    if (exp == 0 ){
+        return 1;
+    }
+    else{
+        newbase = newbase * base; 
+        exp = exp - 1;
+    }
 
-    return 0;
 }
 
 /** ----------------------------------------------------------
