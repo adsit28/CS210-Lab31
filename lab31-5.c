@@ -17,7 +17,14 @@ int main() {
     // lab31.h header and defining your function in this file.
     //
     // Try calling your function with a few test cases to make sure it works.
+     // Ask the user for the Fibonacci index
+
+     int n;
+    printf("Enter a number to find the Fibonacci value: ");
+    scanf("%d", &n);
     
+    // Call the fibonacci function and print the result
+    printf("Fibonacci number at position %d is %d\n", n, fibonacci(n));
     
     return 0;
 }

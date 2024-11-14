@@ -18,13 +18,12 @@
  * ----------------------------------------------------------
  */
 int powerN(int base, int exp) {
-    int newbase = base;
     if (exp == 0 ){
         return 1;
     }
     else{
-        newbase = newbase * base; 
-        exp = exp - 1;
+        return base * powerN(base, exp - 1);
+        
     }
 
 }
@@ -38,8 +37,15 @@ int powerN(int base, int exp) {
  * ----------------------------------------------------------
  */
 int count_char(char str[], char c) {
-
-    return 0;
+    if(str[0] == '\0'){
+        return 0;
+    }
+    else if(str[0] == c){
+        return 1+ count_char(str + 1, c);
+    }
+    else{
+        return count_char(str + 1, c);
+    }
 }
 
 /** ----------------------------------------------------------
@@ -52,8 +58,15 @@ int count_char(char str[], char c) {
  * ----------------------------------------------------------
  */
 int count_num(int array[], int x, int len) {
-
-    return 0;
+    if(len == 0){
+        return 0;
+    }
+    else if(array[0] == x){
+        return 1 + count_num(array + 1, x, len-1);
+    }
+    else{
+        return count_num(array + 1, x, len-1);
+    }
 }
 
 /** ----------------------------------------------------------
@@ -66,6 +79,12 @@ int count_num(int array[], int x, int len) {
 void reverse_print(char str[]) {
 
     // TODO:  Add Your Code Here
+    if(str[0] == '\0'){
+        return;
+    }
+    reverse_print(str+1);
+
+    printf("%c", str[0]);
 }
 
 /** ----------------------------------------------------------
@@ -77,5 +96,13 @@ void reverse_print(char str[]) {
  */
  int fibonacci(int N) {
     
-    return 0;
+    // Base cases
+    if (N == 0) {
+        return 0;  // F(0) = 0
+    } else if (N == 1) {
+        return 1;  // F(1) = 1
+    } else {
+        // Recursive case: F(n) = F(n-1) + F(n-2)
+        return fibonacci(N - 1) + fibonacci(N - 2);
+    }
  }
